@@ -12,6 +12,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from models.unet import UNet
 from calibration.undistort import CameraUndistorter
 
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
 class InferencePipeline:
     """
     End-to-end inference pipeline: Raw Image => Undistortion => Custom U-Net Segmentation.
@@ -98,17 +100,16 @@ class InferencePipeline:
         return img_undistorted, processed_mask, overlay
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="Run single-image undistortion + segmentation inference.")
     parser.add_argument('--image', type=str, required=True, help='Path to raw input image')
+    parser.add_argument('--params', type=str, default=os.path.join(PROJECT_ROOT, "calibration", "camera_params.json"))
+    parser.add_argument('--weights', type=str, default=os.path.join(PROJECT_ROOT, "models", "best_model.pth"))
+    parser.add_argument('--out_dir', type=str, default=os.path.join(PROJECT_ROOT, "inference"))
     args = parser.parse_args()
-    
-    params = r"C:\Users\Manahil Khalid\Desktop\Assessment\calibration\camera_params.json"
-    weights = r"C:\Users\Manahil Khalid\Desktop\Assessment\models\best_model.pth"
-    out_dir = r"C:\Users\Manahil Khalid\Desktop\Assessment\inference"
-    
-    if not os.path.exists(weights):
+
+    if not os.path.exists(args.weights):
         print("Error: Trained model weights not found. Run models/train.py first.")
         sys.exit(1)
-        
-    pipeline = InferencePipeline(params, weights)
-    pipeline.predict(args.image, output_dir=out_dir)
+
+    pipeline = InferencePipeline(args.params, args.weights)
+    pipeline.predict(args.image, output_dir=args.out_dir)
