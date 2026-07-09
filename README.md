@@ -85,7 +85,9 @@ project-root/
 │
 ├── measurement/              # Metric scaling and accuracy validation
 │   ├── measure.py            # Peak-based scale derivation & bounding boxes
-│   └── validate_accuracy.py  # Validation testing and MAE/MPE calculator
+│   ├── validate_accuracy.py  # Validation testing and MAE/MPE calculator
+│   ├── validation_table.md   # Tabulated error report (MAE/MPE)
+│   ├── validation_summary.json # Raw numerical errors and ratio configurations
 │
 ├── docs/                     # Mandatory assessment reports
 │   ├── CALIBRATION_REPORT.md # Calibration metrics & parameters
