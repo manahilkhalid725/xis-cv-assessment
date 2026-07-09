@@ -81,6 +81,6 @@ At the best epoch (Epoch 13), the model achieved the following performance metri
 - **F1-Score**: **0.7966**
 - **Precision**: **0.8012** (Fewer false-positive background pixels)
 - **Recall**: **0.7921** (Successfully segmented nearly all true remote pixels)
-- **Mean Average Precision (mAP@0.5)**: **0.7001** (Matches IoU threshold of 0.5 for single-object binary segmentation)
+- **mAP@0.5 / mAP@0.5:0.95**: Not computed. True mAP requires a confidence-threshold sweep and precision-recall curve, which doesn't map cleanly onto a single-class binary segmentation setup with no per-instance confidence scores. IoU (0.7001) and F1 (0.7966) are reported instead as the primary overlap and detection-quality metrics for this model.
 
 Training curves, including BCE+Dice Loss and validation metrics, are saved in `models/training_curves.png`. Large weight files are hosted on Google Drive to maintain a lightweight GitHub repository.

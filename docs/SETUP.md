@@ -42,6 +42,8 @@ pip install -r requirements.txt
 
 ---
 
+> **Known issue**: the `__main__` blocks in `calibration/calibrate.py`, `calibration/undistort.py`, `dataset/label_images.py`, `dataset/prepare_dataset.py`, `dataset/dataset_stats.py`, and `measurement/validate_accuracy.py` currently hardcode absolute Windows paths (e.g. `C:\Users\...\Assessment\...`) from development. Before running the commands below on another machine, open each script and update these paths to point at your local `Dataset/`, `calibration/`, `dataset/`, and `measurement/` folders, or pass them as arguments once the scripts are updated to use `argparse`.
+
 ## 3. Running the Pipeline
 
 The pipeline consists of three sequential steps, each relying on the output of the previous:

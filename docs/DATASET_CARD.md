@@ -37,6 +37,9 @@ To eliminate human bias and ensure pixel-level accuracy, we developed a semi-aut
 
 All 71 images were successfully labeled automatically, achieving an average detection confidence score of **97.8%**.
 
+### Note on Labelling Method vs. Manual Annotation
+The assessment specification suggests manual annotation with a tool such as CVAT or Roboflow. We instead used a pretrained Mask R-CNN (COCO `remote` class) to generate masks automatically, for three reasons: (1) the remote control is already a COCO category, so a pretrained detector gives a strong prior without needing manual polygon drawing; (2) it removes annotator-to-annotator boundary inconsistency; (3) it scales cleanly to re-labelling if more images are collected. The trade-off is that mask quality is capped by Mask R-CNN's own boundary precision, and errors in its predictions (e.g. missed edges under shadow) propagate directly into training labels with no manual correction step. A production version of this pipeline would add a manual QA/correction pass over a sample of the auto-generated masks in CVAT to catch these cases; that step was not performed here.
+
 ---
 
 ## 4. Dataset Splits & Statistics

@@ -11,6 +11,8 @@ The calibration script transposes and rotates any portrait-oriented images to la
 
 ### Corner Detection & Sub-pixel Refinement
 1. **Initial Search**: Grayscale versions of the images are searched using `cv2.findChessboardCorners` for a grid size of $7 \times 7$ inner corners (corresponding to an $8 \times 8$ chessboard).
+
+> **Note on board size**: The assessment specification (Section 5.1) requests a minimum of 7×9 inner corners. This calibration was run on a 7×7 board. The reprojection error achieved (0.1933 px) is well within the excellent range, so the smaller grid did not appear to compromise calibration quality in practice, but a 7×9 or larger board would be used in a follow-up pass to fully match the stated requirement.
 2. **Flags**: Adaptive thresholding and image normalization flags (`cv2.CALIB_CB_ADAPTIVE_THRESH + cv2.CALIB_CB_NORMALIZE_IMAGE`) are enabled to handle variations in lighting.
 3. **Sub-pixel Localization**: For every successful grid detection, the coordinates are refined to sub-pixel accuracy using `cv2.cornerSubPix` with a window size of $11 \times 11$ pixels.
 4. **Parameter Calculation**: The 3D-to-2D correspondences are passed to `cv2.calibrateCamera` to compute the calibration parameters.
