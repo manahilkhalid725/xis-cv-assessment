@@ -12,7 +12,7 @@ To ensure training was computationally feasible on a standard CPU without compro
    - Max Pooling ($2\times2$, stride 2) for downsampling.
    - Channels increase at each stage: $3 \rightarrow 32 \rightarrow 64 \rightarrow 128 \rightarrow 256 \rightarrow 512$ (bottleneck).
 2. **Expanding Path (Decoder)**:
-   - Up-sampling (Bilinear interpolation with $2\times$ scale factor).
+   - Up-sampling via **learned transposed convolution** (`nn.ConvTranspose2d`, kernel 2×2, stride 2) — `train.py` instantiates the model with `bilinear=False`, so upsampling weights are learned rather than fixed bilinear interpolation. (Verified directly against `best_model.pth`: the saved state dict contains `up1.up.weight` / `up1.up.bias` etc., which only exist in the ConvTranspose2d branch of `models/unet.py`.)
    - Channel concatenation with the corresponding skip connection from the contracting path (retains high-resolution spatial details for sharp boundaries).
    - Double Convolution blocks to process the combined features.
    - Channels decrease at each stage: $512 \rightarrow 256 \rightarrow 128 \rightarrow 64 \rightarrow 32$.
