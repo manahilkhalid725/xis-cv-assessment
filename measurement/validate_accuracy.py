@@ -4,11 +4,14 @@ import os
 import glob
 import sys
 import json
+import argparse
 
 # Ensure imports work
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from inference.predict import InferencePipeline
 from measurement.measure import estimate_pixel_to_mm_ratio, measure_object, draw_measurements
+
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
 def run_accuracy_validation(split_dir, params_path, model_weights_path, output_dir):
     """
@@ -147,9 +150,11 @@ def run_accuracy_validation(split_dir, params_path, model_weights_path, output_d
     return summary
 
 if __name__ == "__main__":
-    split_dir = r"C:\Users\Manahil Khalid\Desktop\Assessment\dataset\split"
-    params = r"C:\Users\Manahil Khalid\Desktop\Assessment\calibration\camera_params.json"
-    weights = r"C:\Users\Manahil Khalid\Desktop\Assessment\models\best_model.pth"
-    out_dir = r"C:\Users\Manahil Khalid\Desktop\Assessment\measurement"
-    
-    run_accuracy_validation(split_dir, params, weights, out_dir)
+    parser = argparse.ArgumentParser(description="Run end-to-end measurement accuracy validation on the test split.")
+    parser.add_argument('--split_dir', type=str, default=os.path.join(PROJECT_ROOT, "dataset", "split"))
+    parser.add_argument('--params', type=str, default=os.path.join(PROJECT_ROOT, "calibration", "camera_params.json"))
+    parser.add_argument('--weights', type=str, default=os.path.join(PROJECT_ROOT, "models", "best_model.pth"))
+    parser.add_argument('--out_dir', type=str, default=os.path.join(PROJECT_ROOT, "measurement"))
+    args = parser.parse_args()
+
+    run_accuracy_validation(args.split_dir, args.params, args.weights, args.out_dir)
