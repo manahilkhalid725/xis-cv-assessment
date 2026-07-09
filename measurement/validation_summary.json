@@ -1,0 +1,94 @@
+{
+    "ground_truth": {
+        "width_mm": 48.0,
+        "height_mm": 186.0
+    },
+    "individual_results": [
+        {
+            "image": "undistorted_WhatsApp Image 2026-07-09 at 12.48.12 PM.png",
+            "px_to_mm": 5.958761215209961,
+            "pred_width": 87.89790344238281,
+            "pred_height": 219.7427978515625,
+            "width_error": 39.89790344238281,
+            "height_error": 33.7427978515625,
+            "width_pct_error": 83.12063598632812,
+            "height_pct_error": 18.14128875732422
+        },
+        {
+            "image": "undistorted_WhatsApp Image 2026-07-09 at 12.48.37 PM (1).png",
+            "px_to_mm": 4.838278293609619,
+            "pred_width": 197.19735717773438,
+            "pred_height": 259.7044982910156,
+            "width_error": 149.19735717773438,
+            "height_error": 73.70449829101562,
+            "width_pct_error": 310.82781982421875,
+            "height_pct_error": 39.626075744628906
+        },
+        {
+            "image": "undistorted_WhatsApp Image 2026-07-09 at 12.48.37 PM.png",
+            "px_to_mm": 6.123126029968262,
+            "pred_width": 75.12300872802734,
+            "pred_height": 184.72862243652344,
+            "width_error": 27.123008728027344,
+            "height_error": 1.2713775634765625,
+            "width_pct_error": 56.50627136230469,
+            "height_pct_error": 0.6835363507270813
+        },
+        {
+            "image": "undistorted_WhatsApp Image 2026-07-09 at 12.48.38 PM (1).png",
+            "px_to_mm": 5.485320568084717,
+            "pred_width": 78.05906677246094,
+            "pred_height": 166.80093383789062,
+            "width_error": 30.059066772460938,
+            "height_error": 19.199066162109375,
+            "width_pct_error": 62.62305450439453,
+            "height_pct_error": 10.322078704833984
+        },
+        {
+            "image": "undistorted_WhatsApp Image 2026-07-09 at 12.48.38 PM.png",
+            "px_to_mm": 6.911999702453613,
+            "pred_width": 30.836320877075195,
+            "pred_height": 77.42056274414062,
+            "width_error": 17.163679122924805,
+            "height_error": 108.57943725585938,
+            "width_pct_error": 35.75766372680664,
+            "height_pct_error": 58.37604522705078
+        },
+        {
+            "image": "undistorted_WhatsApp Image 2026-07-09 at 12.48.42 PM (2).png",
+            "px_to_mm": 6.760469913482666,
+            "pred_width": 54.41084289550781,
+            "pred_height": 159.17088317871094,
+            "width_error": 6.4108428955078125,
+            "height_error": 26.829116821289062,
+            "width_pct_error": 13.35592269897461,
+            "height_pct_error": 14.424257278442383
+        },
+        {
+            "image": "undistorted_WhatsApp Image 2026-07-09 at 12.48.43 PM (1).png",
+            "px_to_mm": 5.153651714324951,
+            "pred_width": 67.39209747314453,
+            "pred_height": 106.18206787109375,
+            "width_error": 19.39209747314453,
+            "height_error": 79.81793212890625,
+            "width_pct_error": 40.400203704833984,
+            "height_pct_error": 42.91286849975586
+        },
+        {
+            "image": "undistorted_WhatsApp Image 2026-07-09 at 12.48.44 PM (2).png",
+            "px_to_mm": 6.439821243286133,
+            "pred_width": 27.863216400146484,
+            "pred_height": 109.13844299316406,
+            "width_error": 20.136783599853516,
+            "height_error": 76.86155700683594,
+            "width_pct_error": 41.95163345336914,
+            "height_pct_error": 41.32341766357422
+        }
+    ],
+    "aggregate_metrics": {
+        "mae_width_mm": 38.67259216308594,
+        "mae_height_mm": 52.50072479248047,
+        "mpe_width_pct": 80.56790161132812,
+        "mpe_height_pct": 28.2261962890625
+    }
+}
