@@ -17,6 +17,8 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from models.unet import UNet
 
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
 class RemoteDataset(Dataset):
     """
     Dataset loader for remote images and masks.
@@ -243,14 +245,16 @@ def train_model(split_dir, output_model_path, epochs=15, batch_size=4, lr=1e-4, 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+    parser.add_argument('--split_dir', type=str, default=os.path.join(PROJECT_ROOT, "dataset", "split"),
+                         help="Directory containing train/val/test split folders.")
+    parser.add_argument('--output_model', type=str, default=os.path.join(PROJECT_ROOT, "models", "best_model.pth"),
+                         help="Path to save the best model weights.")
     parser.add_argument('--epochs', type=int, default=15)
     parser.add_argument('--batch_size', type=int, default=4)
     parser.add_argument('--lr', type=float, default=1e-4)
     parser.add_argument('--quick_test', action='store_true', help='Run 1 epoch quickly for testing')
     args = parser.parse_args()
-    
-    split_dir = r"C:\Users\Manahil Khalid\Desktop\Assessment\dataset\split"
-    output_model = r"C:\Users\Manahil Khalid\Desktop\Assessment\models\best_model.pth"
-    
-    os.makedirs(os.path.dirname(output_model), exist_ok=True)
-    train_model(split_dir, output_model, epochs=args.epochs, batch_size=args.batch_size, lr=args.lr, quick_test=args.quick_test)
+
+    os.makedirs(os.path.dirname(args.output_model), exist_ok=True)
+    train_model(args.split_dir, args.output_model, epochs=args.epochs, batch_size=args.batch_size,
+                lr=args.lr, quick_test=args.quick_test)
