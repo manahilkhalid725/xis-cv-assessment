@@ -57,7 +57,7 @@ $$\text{MRE} = \frac{1}{N} \sum_{i=1}^N \| \mathbf{x}_i - \hat{\mathbf{x}}_i \|_
 - **Mean Reprojection Error**: **0.1933 pixels**
 
 ### Interpretation
-An MRE of **0.1933 pixels** is well below the target threshold of **0.3 pixels**, signifying an **excellent** calibration. This low error level guarantees that lens distortion can be successfully corrected, paving the way for sub-millimeter level measurement accuracy.
+An MRE of **0.1933 pixels** is well below the target threshold of **0.3 pixels**, signifying an **excellent** calibration. This confirms the lens distortion model itself is accurate and that undistortion is being applied correctly. It does not, on its own, guarantee accurate final measurements — end-to-end width/height accuracy also depends on segmentation mask quality and the background scale-estimation step, both of which introduce additional error downstream. See `MEASUREMENT_REPORT.md` for the actual measured accuracy (MAE 38.67 mm width / 52.50 mm height on the test set) and a breakdown of where that error comes from.
 
 ---
 
