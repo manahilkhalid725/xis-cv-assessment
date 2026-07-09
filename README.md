@@ -19,13 +19,11 @@ This project was built from scratch as part of the XIS AI / Computer Vision Depa
 
 In compliance with assessment regulations (Section 2.2), all large datasets, calibration images, and weights are hosted on Google Drive. The GitHub repository remains lightweight.
 
-> [!WARNING]
-> **Replace these links with your actual shared Google Drive links before final submission!**
-
-- **Calibration Board Images**: [Google Drive Link - Calibration Images](https://drive.google.com/drive/folders/placeholder_calibration)
-- **Raw Target Dataset Images**: [Google Drive Link - Raw Images](https://drive.google.com/drive/folders/placeholder_raw_dataset)
-- **Labeled Dataset Export (Images & Masks)**: [Google Drive Link - Labeled Dataset](https://drive.google.com/drive/folders/placeholder_labeled)
-- **Trained Model Weights (`best_model.pth`)**: [Google Drive Link - Trained Model Weights](https://drive.google.com/drive/folders/placeholder_weights)
+- **Calibration Board Images**: [Google Drive Link - Calibration Images](https://drive.google.com/drive/folders/15DT0QDeWkSBMC1EWYlzoME2j4cLnO0eO?usp=drive_link)
+- **Raw Target Dataset Images**: [Google Drive Link - Raw Images](https://drive.google.com/drive/folders/1QU95tKtk1VBPkyQnURSmYurN7Dw6o7GD?usp=drive_link)
+- **Labeled Dataset Export (Images & Masks)**: [Google Drive Link - Labeled Dataset](https://drive.google.com/drive/folders/1dbNcYgPD0QlK1jtWLfTRe4F6FbRP3qwr?usp=drive_link)
+- **Trained Model Weights (`best_model.pth`)**: [Google Drive Link - Trained Model Weights](https://drive.google.com/drive/folders/1IkgS37WiIKSzPJg1hLF4p-080oylgq9U?usp=drive_link)
+- **Main Project Folder**: [Google Drive Link - Parent Directory](https://drive.google.com/drive/folders/1apJCUc11crEcya3Pveg1KBxtfB-w7d28?usp=drive_link)
 
 ---
 
