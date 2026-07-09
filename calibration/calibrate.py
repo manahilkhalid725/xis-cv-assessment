@@ -3,6 +3,10 @@ import numpy as np
 import glob
 import os
 import json
+import argparse
+
+# Project root = one level up from this file (calibration/calibrate.py -> project-root)
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
 def calibrate_camera(board_dir, grid_size=(7, 7), square_size=25.0, output_json="camera_params.json", debug_dir="debug_corners"):
     """
@@ -132,9 +136,18 @@ def calibrate_camera(board_dir, grid_size=(7, 7), square_size=25.0, output_json=
     return camera_params
 
 if __name__ == "__main__":
-    board_directory = r"C:\Users\Manahil Khalid\Desktop\Assessment\Dataset\Board"
-    output_file = r"C:\Users\Manahil Khalid\Desktop\Assessment\calibration\camera_params.json"
-    debug_directory = r"C:\Users\Manahil Khalid\Desktop\Assessment\calibration\debug_corners"
-    
-    os.makedirs(os.path.dirname(output_file), exist_ok=True)
-    calibrate_camera(board_directory, grid_size=(7, 7), square_size=25.0, output_json=output_file, debug_dir=debug_directory)
+    parser = argparse.ArgumentParser(description="Intrinsic camera calibration from checkerboard images.")
+    parser.add_argument('--board_dir', type=str, default=os.path.join(PROJECT_ROOT, "Dataset", "Board"),
+                         help="Directory containing checkerboard calibration images.")
+    parser.add_argument('--output', type=str, default=os.path.join(PROJECT_ROOT, "calibration", "camera_params.json"),
+                         help="Output path for camera_params.json")
+    parser.add_argument('--debug_dir', type=str, default=os.path.join(PROJECT_ROOT, "calibration", "debug_corners"),
+                         help="Directory to save corner-detection debug images.")
+    parser.add_argument('--grid_w', type=int, default=7, help="Inner corners along width.")
+    parser.add_argument('--grid_h', type=int, default=7, help="Inner corners along height.")
+    parser.add_argument('--square_size', type=float, default=25.0, help="Physical checkerboard square size (mm).")
+    args = parser.parse_args()
+
+    os.makedirs(os.path.dirname(args.output), exist_ok=True)
+    calibrate_camera(args.board_dir, grid_size=(args.grid_w, args.grid_h), square_size=args.square_size,
+                      output_json=args.output, debug_dir=args.debug_dir)

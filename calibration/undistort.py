@@ -3,6 +3,8 @@ import numpy as np
 import json
 import os
 
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
 class CameraUndistorter:
     """
     Loads camera calibration parameters from a JSON file and undistorts images.
@@ -37,7 +39,7 @@ class CameraUndistorter:
 
 def main():
     # Simple verification code
-    params_file = r"C:\Users\Manahil Khalid\Desktop\Assessment\calibration\camera_params.json"
+    params_file = os.path.join(PROJECT_ROOT, "calibration", "camera_params.json")
     if not os.path.exists(params_file):
         print(f"Please run calibrate.py first. Could not find {params_file}")
         return
