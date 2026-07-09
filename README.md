@@ -2,7 +2,7 @@
 
 This repository contains the complete end-to-end computer vision pipeline for **intrinsic camera calibration**, **deep-learning semantic segmentation**, and **real-world metric measurement** (width and height in millimeters) of a custom target object (TV remote control) from raw imagery.
 
-This project was built from scratch as part of the XIS AI / Computer Vision Department technical assessment.
+This repository contains my submission for the XIS AI & Computer Vision engineering technical assessment.
 
 ---
 
