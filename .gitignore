@@ -1,0 +1,23 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Large Datasets (Must be uploaded to Google Drive, NOT Git!)
+Dataset/
+dataset/processed/
+dataset/split/
+
+# Model Weights
+models/*.pth
+models/*.pt
+
+# IDEs & System files
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+
+# Calibration debug outputs
+calibration/debug_corners/
