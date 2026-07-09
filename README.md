@@ -10,8 +10,8 @@ This repository contains my submission for the XIS AI & Computer Vision engineer
 - **Sub-pixel Camera Calibration**: Calculates the intrinsic camera matrix ($K$) and lens distortion coefficients ($D$) using checkerboard images, achieving an excellent Mean Reprojection Error of **0.1933 pixels**.
 - **AI-Assisted Labeling**: Automatically extracts binary ground-truth segmentation masks for the remote control using a pre-trained COCO Mask R-CNN model on undistorted images.
 - **Custom Segmentation Model**: Trains a lightweight custom **U-Net** semantic segmentation model in PyTorch from scratch, achieving a Validation Intersection over Union (IoU) of **0.7001** on CPU.
-- **Occlusion-Resistant Metric Scaling**: Derives the pixel-to-millimeter ratio dynamics on occluded backgrounds using Harris corner clustering and pairwise distance histogram peak detection.
-- **Sub-millimeter Accuracy Validation**: Fit min-area bounding boxes to segmentations, achieving low metric dimension errors (e.g. only **3.0 mm** height error on test images).
+- **Occlusion-Resistant Metric Scaling**: Derives the pixel-to-millimeter ratio dynamically on occluded backgrounds using Shi-Tomasi corner detection and pairwise distance histogram peak detection.
+- **Metric Accuracy Validation**: Fit min-area bounding boxes to segmentations and validated against physical ground-truth measurements on 8 held-out test images, achieving a Mean Absolute Error of **38.67 mm (width)** and **52.50 mm (height)**. See `docs/MEASUREMENT_REPORT.md` for the full per-image error table and a discussion of the main error sources (segmentation incompleteness, perspective tilt, focus blur).
 
 ---
 
@@ -100,4 +100,4 @@ project-root/
 └── README.md                 # Project quick-start and Drive links
 ```
 
-For detailed guides, please refer to the files in the [docs/](file:///C:/Users/Manahil%20Khalid/Desktop/Assessment/docs/) folder.
+For detailed guides, please refer to the files in the [docs/](docs/) folder.
